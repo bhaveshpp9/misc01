@@ -13,9 +13,11 @@ pipeline {
       }
     }
     stage('Building image') {
-      steps{
-	dockerImage = docker.build("bhaveshpp9/misc01")
-      }
+      steps {
+	script {
+	dockerImage = docker.build imagename
+      		}
+	}
 
     }
     stage('Deploy Image') {
