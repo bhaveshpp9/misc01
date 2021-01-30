@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry( 'git', registryCredential ) {
+          docker.withRegistry( 'https://registry.hub.docker.com' ,'git'  ) {
             dockerImage.push("$BUILD_NUMBER")
              dockerImage.push('latest')
 
