@@ -14,9 +14,8 @@ pipeline {
     }
     stage('Building image') {
       steps{
-        script {
-          dockerImage = docker.build imagename
-        }
+	sh 'docker build -t tomcat01:latest .'
+	sh 'docker tag tomcat01 bparmar77/tomcat01:latest'
       }
     }
     stage('Deploy Image') {
