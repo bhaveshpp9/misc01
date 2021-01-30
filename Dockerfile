@@ -20,6 +20,7 @@ RUN apk del curl && \
 
 EXPOSE 9090
 
+COPY addressbook.war $CATALINA_HOME/webapp
 COPY startup.sh /opt/startup.sh
 
 ENTRYPOINT /opt/startup.sh
