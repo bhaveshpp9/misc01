@@ -1,7 +1,6 @@
 pipeline {
   environment {
     imagename = "bhaveshpp9/misc01"
-    registryCredential = 'bparmar77'
     dockerImage = 'tomcat01'
   }
   agent any
