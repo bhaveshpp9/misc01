@@ -14,9 +14,9 @@ pipeline {
     }
     stage('Building image') {
       steps{
-	sh 'docker build -t tomcat01:latest .'
-	sh 'docker tag tomcat01 bparmar77/tomcat01:latest'
+	dockerImage = docker.build("bhaveshpp9/misc01")
       }
+
     }
     stage('Deploy Image') {
       steps{
