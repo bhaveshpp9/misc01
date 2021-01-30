@@ -1,7 +1,7 @@
 pipeline {
   environment {
     imagename = "bhaveshpp9/misc01"
-    registryCredential = 'bparmar77'
+    registryCredential = 'git'
     dockerImage = 'tomcat01'
   }
   agent any
@@ -22,7 +22,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry( 'git', registryCredential ) {
+          docker.withRegistry( 'https://https://registry.hub.docker.com', registryCredential ) {
             dockerImage.push("$BUILD_NUMBER")
              dockerImage.push('latest')
 
