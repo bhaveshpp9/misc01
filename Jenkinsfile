@@ -4,7 +4,7 @@ node {
             checkout scm
       }
       stage('Build image') {
-            app = docker.build("brandonjones085/test")
+            app = docker.build("bhaveshpp9/misc01")
       }
       stage('Test image') {
                        app.inside {
