@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-alpine
 ENV TOMCAT_MAJOR=8 \
     TOMCAT_VERSION=8.5.37 \
     CATALINA_HOME=/opt/tomcat \
-    PATH $CATALINA_HOME/bin:$PATH
+    PATH=$CATALINA_HOME/bin:$PATH
 
 RUN apk -U upgrade --update && \
     apk add curl && \
