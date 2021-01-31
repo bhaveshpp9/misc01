@@ -3,6 +3,7 @@ FROM openjdk:8-jdk-alpine
 ENV TOMCAT_MAJOR=8 \
     TOMCAT_VERSION=8.5.37 \
     CATALINA_HOME=/opt/tomcat
+    PATH $CATALINA_HOME/bin:$PATH
 
 RUN apk -U upgrade --update && \
     apk add curl && \
@@ -18,10 +19,10 @@ RUN curl -jkSL -o /tmp/apache-tomcat.tar.gz http://archive.apache.org/dist/tomca
 RUN apk del curl && \
     rm -rf /tmp/* /var/cache/apk/*
 
-EXPOSE 9090
+EXPOSE 8080 
 
 COPY addressbook.war $CATALINA_HOME/webapp
 
-ENTRYPOINT /opt/tomcat/bin/startup.sh
+CMD ["catalina.sh", "run"]
 
 WORKDIR $CATALINA_HOME
