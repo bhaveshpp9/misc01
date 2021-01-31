@@ -21,15 +21,9 @@ pipeline {
     }
     stage('Deploy Image') {
       steps{
-        script {
-/***/          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("$BUILD_NUMBER")
-              dockerImage.push('latest')
-/***/
-          }
-        }
-      }
-    }
+        sh "sudo su - bhavesh; docker login; docker push bparmar77/misc01;"  
+	}
+     }    
     stage('Remove Unused docker image') {
       steps{
         sh "docker rmi $imagename:$BUILD_NUMBER"
