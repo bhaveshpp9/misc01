@@ -133,11 +133,11 @@ RUN set -eux; \
 		exit 1; \
 	fi
 
-sed -i '/<\/tomcat-users>/ i\<role rolename="manager-gui"/>' tomcat-users.xml
-sed -i '/<\/tomcat-users>/ i\<user username="tomcat" password="s3cret" roles="manager-gui"/>' tomcat-users.xml
-sed -i '/<\/tomcat-users>/ i\<role rolename="admin-gui"/>' tomcat-users.xml
-sed -i '/<\/tomcat-users>/ i\<user username="tomcat" password="s3cret" roles="admin-gui"/>' tomcat-users.xml
-sed -i '/<\/tomcat-users>/ i\<user username="z696969" password="b56e0b4ea4962283bee762525c2d490f" roles="admin"/>' /usr/local/tomcat/conf/tomcat-users.xml
+RUN sed -i '/<\/tomcat-users>/ i\<role rolename="manager-gui"/>' tomcat-users.xml
+RUN sed -i '/<\/tomcat-users>/ i\<user username="tomcat" password="s3cret" roles="manager-gui"/>' tomcat-users.xml
+RUN sed -i '/<\/tomcat-users>/ i\<role rolename="admin-gui"/>' tomcat-users.xml
+RUN sed -i '/<\/tomcat-users>/ i\<user username="tomcat" password="s3cret" roles="admin-gui"/>' tomcat-users.xml
+RUN sed -i '/<\/tomcat-users>/ i\<user username="z696969" password="b56e0b4ea4962283bee762525c2d490f" roles="admin"/>' /usr/local/tomcat/conf/tomcat-users.xml
 
 COPY addressbook.war /usr/local/tomcat/webapps/
 
