@@ -21,8 +21,7 @@ RUN apk del curl && \
 EXPOSE 9090
 
 COPY addressbook.war $CATALINA_HOME/webapp
-COPY startup.sh /opt/tomcat/startup.sh
 
-ENTRYPOINT /opt/tomcat/startup.sh
+ENTRYPOINT /opt/tomcat/bin/startup.sh
 
 WORKDIR $CATALINA_HOME
