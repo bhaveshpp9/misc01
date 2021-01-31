@@ -19,11 +19,6 @@ pipeline {
         }
       }
     }
-    stage('Deploy Image') {
-      steps{
-        sh "sudo su - bhavesh; docker login; docker push bparmar77/misc01;"  
-	}
-     }    
     stage('Remove Unused docker image') {
       steps{
         sh "docker rmi $imagename:$BUILD_NUMBER"
