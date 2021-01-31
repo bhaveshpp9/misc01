@@ -65,8 +65,6 @@ RUN set -eux; \
 	rm -rf "$GNUPGHOME"; \
 	\
 # https://tomcat.apache.org/tomcat-9.0-doc/security-howto.html#Default_web_applications
-	mv webapps webapps.dist; \
-	mkdir webapps; \
 # we don't delete them completely because they're frankly a pain to get back for users who do want them, and they're generally tiny (~7MB)
 	\
 	nativeBuildDir="$(mktemp -d)"; \
