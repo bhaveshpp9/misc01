@@ -19,7 +19,7 @@ RUN curl -jkSL -o /tmp/apache-tomcat.tar.gz http://archive.apache.org/dist/tomca
 RUN apk del curl && \
     rm -rf /tmp/* /var/cache/apk/*
 
-EXPOSE 8080 
+EXPOSE 8080
 
 COPY addressbook.war $CATALINA_HOME/webapp
 
